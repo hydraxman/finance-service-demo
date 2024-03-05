@@ -1,11 +1,8 @@
 spring:
-  data:
-    r2dbc:
-      repositories:
-        enabled: true
   r2dbc:
     driver: h2
-    sql-script-encoding: utf-8
+    # The connection URL is set to r2dbc:h2:file:///./[database-name], which indicates that you are using H2 disk-based database.
+    # url: r2dbc:h2:file:///./finance?options=DB_CLOSE_DELAY=-1
     url: r2dbc:h2:mem:///finance?options=DB_CLOSE_DELAY=-1
     username:
     password:

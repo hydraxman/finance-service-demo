@@ -1,0 +1,14 @@
+spring:
+  data:
+    r2dbc:
+      repositories:
+        enabled: true
+  r2dbc:
+    driver: h2
+    sql-script-encoding: utf-8
+    url: r2dbc:h2:mem:///finance?options=DB_CLOSE_DELAY=-1
+    username:
+    password:
+    pool:
+      enabled: false
+      initial-size: 5

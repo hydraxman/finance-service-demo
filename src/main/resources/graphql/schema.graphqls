@@ -1,29 +1,37 @@
 type Query {
- getPlayerById(id: ID): Player
- getPlayerByName(name: String): Player
- getAllPlayers: [Player]
- getPlayersByClub(club: String): [Player]
- getPlayersByNationality(nationality: String): [Player]
+    getInsuranceProductById(id: ID): InsuranceProduct
+    getAllInsuranceProducts: [InsuranceProduct]
 }
 
 type Mutation {
- addPlayer(playerInput: PlayerInput!): Player
- updatePlayer(id: ID, playerInput: PlayerInput!): Player
- deletePlayerById(id: ID): Player
- deletePlayerByName(name: String): Player
+    addInsuranceProduct(insuranceProductInput: InsuranceProductInput!): InsuranceProduct
+    updateInsuranceProduct(id: ID, insuranceProductInput: InsuranceProductInput!): InsuranceProduct
+    deleteInsuranceProductById(id: ID): InsuranceProduct
 }
 
-type Player {
- id: ID
- name: String
- age: Int
- club: String
- nationality: String
+type InsuranceProduct {
+    productId: ID
+    productName: String
+    term: Int
+    type: String
+    paymentMethod: String
+    price: Float
+    description: String
+    startDate: String
+    mainImageUrl: String
+    clauseId: Int
+    endDate: String
 }
 
-input PlayerInput {
-    name: String!
-    age: Int!
-    club: String!
-    nationality: String!
+input InsuranceProductInput {
+    productName: String!
+    term: Int!
+    type: String!
+    paymentMethod: String!
+    price: Float!
+    description: String
+    startDate: String!
+    mainImageUrl: String
+    clauseId: Int!
+    endDate: String
 }

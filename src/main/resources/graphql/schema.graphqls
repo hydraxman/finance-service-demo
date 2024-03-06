@@ -10,17 +10,15 @@ type Mutation {
 }
 
 type InsuranceProduct {
-    productId: ID
+    id: ID
     productName: String
     term: Int
     type: String
     paymentMethod: String
     price: Float
     description: String
-    startDate: String
     mainImageUrl: String
     clauseId: Int
-    endDate: String
 }
 
 input InsuranceProductInput {
@@ -30,8 +28,6 @@ input InsuranceProductInput {
     paymentMethod: String!
     price: Float!
     description: String
-    startDate: String!
     mainImageUrl: String
     clauseId: Int!
-    endDate: String
 }

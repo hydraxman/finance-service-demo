@@ -3,9 +3,11 @@ package edu.nathan.finance.service.demo.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -30,7 +32,7 @@ public class InsuranceProductInput {
     private String description;
 
     @JsonProperty("start_date")
-    private Date startDate;
+    private String startDate;
 
     @JsonProperty("main_image_url")
     private String mainImageUrl;
@@ -39,5 +41,5 @@ public class InsuranceProductInput {
     private int clauseId;
 
     @JsonProperty("end_date")
-    private Date endDate;
+    private String endDate;
 }

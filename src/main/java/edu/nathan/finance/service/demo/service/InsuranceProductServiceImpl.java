@@ -58,7 +58,6 @@ public class InsuranceProductServiceImpl implements InsuranceProductService {
                             .setPaymentMethod(insuranceProductInput.getPaymentMethod())
                             .setPrice(insuranceProductInput.getPrice())
                             .setDescription(insuranceProductInput.getDescription())
-                            .setStartDate(insuranceProductInput.getStartDate())
                             .setMainImageUrl(insuranceProductInput.getMainImageUrl());
                     return this.insuranceProductRepository.save(insuranceProduct).log();
                 });

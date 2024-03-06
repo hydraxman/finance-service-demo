@@ -8,7 +8,7 @@ import lombok.experimental.Accessors;
 import org.springframework.data.annotation.Id;
 
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 @Data
 @AllArgsConstructor
@@ -37,17 +37,14 @@ public class InsuranceProduct {
     @JsonProperty("description")
     private String description;
 
-    @JsonProperty("start_date")
-    private Date startDate;
-
     @JsonProperty("main_image_url")
     private String mainImageUrl;
 
     @JsonProperty("clause_id")
     private int clauseId;
 
-    @JsonProperty("end_date")
-    private Date endDate;
+    // 创建一个yyyy-MM-dd格式的日期
+    public final static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
     public InsuranceProduct(InsuranceProductInput insuranceProductInput) {
         this.productName = insuranceProductInput.getProductName();
@@ -56,9 +53,7 @@ public class InsuranceProduct {
         this.paymentMethod = insuranceProductInput.getPaymentMethod();
         this.price = insuranceProductInput.getPrice();
         this.description = insuranceProductInput.getDescription();
-        this.startDate = insuranceProductInput.getStartDate();
         this.mainImageUrl = insuranceProductInput.getMainImageUrl();
         this.clauseId = insuranceProductInput.getClauseId();
-        this.endDate = insuranceProductInput.getEndDate();
     }
 }

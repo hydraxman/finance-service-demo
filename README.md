@@ -1,7 +1,7 @@
 # finance-service-demo
 finance-service-demo
 
-
+Use Java 17, Spring Boot 3+, R2DBC
 
 # Resources
 

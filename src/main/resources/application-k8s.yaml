@@ -1,0 +1,17 @@
+spring:
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+#    username: ${RABBITMQ_USER}
+#    password: ${RABBITMQ_PASSWORD}
+  graphql:
+    graphiql:
+      enabled: true
+  r2dbc:
+    driver: postgres
+    url: r2dbc:postgresql://localhost:5432/database_name
+    username: ${PG_USER}
+    password: ${PG_PASSWORD}
+    pool:
+      enabled: false
+      initial-size: 5

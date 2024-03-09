@@ -1,8 +1,8 @@
 # run this after: ./gradlew.bat :bootJar
-FROM mcr.microsoft.com/openjdk/jdk:11-ubuntu
+FROM mcr.microsoft.com/openjdk/jdk:17-ubuntu
 
 # 设置工作目录
-WORKDIR /app
+#WORKDIR /app
 
 # 将构建好的jar文件复制到镜像中
 COPY build/libs/*.jar app.jar

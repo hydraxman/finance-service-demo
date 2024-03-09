@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: finance-app
+  namespace: finance
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: finance-app
+  template:
+    metadata:
+      labels:
+        app: finance-app
+    spec:
+      containers:
+        - name: finance-service
+          image: localhost:5100/finance-service-graphql-reactive:latest
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: finance-app-service
+  namespace: finance
+spec:
+  selector:
+    app: finance-app
+  type: LoadBalancer # or LoadBalancer if you want to expose it externally
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080

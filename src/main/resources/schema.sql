@@ -11,3 +11,12 @@ CREATE TABLE insurance_product (
     clause_id INT, -- 保险条款ID
     end_date DATE -- 产品停售日期，NULL表示仍在售
 );
+CREATE TABLE user_entity (
+  id SERIAL PRIMARY KEY,
+  username VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  role VARCHAR(50) NOT NULL,
+  status VARCHAR(50) NOT NULL,
+  created_at VARCHAR(50) NOT NULL
+);

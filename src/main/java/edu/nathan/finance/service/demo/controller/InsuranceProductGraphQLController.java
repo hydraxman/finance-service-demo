@@ -26,14 +26,14 @@ public class InsuranceProductGraphQLController {
         this.insuranceProductService = insuranceProductService;
     }
 
-    @QueryMapping("getAllInsuranceProducts")
-    Flux<InsuranceProduct> getAllInsuranceProducts() {
+    @QueryMapping("listInsuranceProducts")
+    Flux<InsuranceProduct> listInsuranceProducts() {
         log.info("Get all players using 'getAllInsuranceProducts' query");
         return processWithLog(this.insuranceProductService.getAllInsuranceProducts());
     }
 
-    @QueryMapping("getInsuranceProductById")
-    Mono<InsuranceProduct> getInsuranceProductById(@Argument Integer id) {
+    @QueryMapping("insuranceProduct")
+    Mono<InsuranceProduct> insuranceProduct(@Argument Integer id) {
         log.info("Get player by id using 'getInsuranceProductById' query");
         return processWithLog(this.insuranceProductService.getInsuranceProductById(id));
     }

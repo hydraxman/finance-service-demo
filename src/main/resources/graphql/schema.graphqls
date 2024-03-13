@@ -1,15 +1,23 @@
 type Query {
     hello: String!
-    getInsuranceProductById(id: ID): InsuranceProduct
+    insuranceProduct(id: ID): InsuranceProduct
     getInsuranceProductByName(name: String): InsuranceProduct
-    getAllInsuranceProducts: [InsuranceProduct]
+    listInsuranceProducts: [InsuranceProduct]
+    user(id: ID!): User
+    listUsers: [User]
 }
 
+type Subscription {
+    userCreated: User
+}
 type Mutation {
     addInsuranceProduct(insuranceProductInput: InsuranceProductInput!): InsuranceProduct
     updateInsuranceProduct(id: ID, insuranceProductInput: InsuranceProductInput!): InsuranceProduct
     deleteInsuranceProductById(id: ID): InsuranceProduct
     deleteInsuranceProductByName(name: String): InsuranceProduct
+    createUser(userInput: UserInput!): User
+    updateUser(id: ID!, userInput: UserInput!): User
+    deleteUser(id: ID!): ID
 }
 
 type InsuranceProduct {
@@ -37,4 +45,22 @@ input InsuranceProductInput {
     mainImageUrl: String
     clauseId: Int!
     endDate: String
+}
+type User {
+    id: ID!
+    username: String!
+    email: String!
+    password: String!
+    role: String!
+    status: String!
+    createdAt: String!
+}
+
+input UserInput {
+    username: String!
+    email: String!
+    password: String!
+    role: String!
+    status: String!
+    createdAt: String!
 }

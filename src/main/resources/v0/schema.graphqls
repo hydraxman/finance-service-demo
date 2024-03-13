@@ -1,0 +1,34 @@
+type Query {
+    hello: String!
+    getInsuranceProduct(id: ID!): InsuranceProduct
+    listInsuranceProducts: [InsuranceProduct]
+}
+type Mutation {
+    createInsuranceProduct(input: InsuranceProductInput): InsuranceProduct
+    updateInsuranceProduct(id: ID!, input: InsuranceProductInput): InsuranceProduct
+}
+
+input InsuranceProductInput {
+    name: String!
+    description: String!
+    type: String!
+    coverage: String!
+    premium: Float!
+    duration: String!
+    status: String!
+    company: String
+    agent: String
+}
+
+type InsuranceProduct {
+    id: ID!
+    name: String!
+    description: String!
+    type: String!
+    coverage: String!
+    premium: Float!
+    duration: String!
+    status: String!
+    company: String
+    agent: String
+}

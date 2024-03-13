@@ -1,5 +1,7 @@
 type Query {
+    hello: String!
     getInsuranceProductById(id: ID): InsuranceProduct
+    getInsuranceProductByName(name: String): InsuranceProduct
     getAllInsuranceProducts: [InsuranceProduct]
 }
 
@@ -7,10 +9,11 @@ type Mutation {
     addInsuranceProduct(insuranceProductInput: InsuranceProductInput!): InsuranceProduct
     updateInsuranceProduct(id: ID, insuranceProductInput: InsuranceProductInput!): InsuranceProduct
     deleteInsuranceProductById(id: ID): InsuranceProduct
+    deleteInsuranceProductByName(name: String): InsuranceProduct
 }
 
 type InsuranceProduct {
-    productId: ID
+    id: ID
     productName: String
     term: Int
     type: String

@@ -16,38 +16,26 @@ import java.sql.Date;
 @Accessors(chain = true)
 public class InsuranceProduct {
     @Id
-    @JsonProperty("id")
     private int id;
 
-    @JsonProperty("product_name")
     private String productName;
 
-    @JsonProperty("term")
     private int term;
 
-    @JsonProperty("type")
     private String type;
 
-    @JsonProperty("payment_method")
     private String paymentMethod;
 
-    @JsonProperty("price")
     private BigDecimal price;
 
-    @JsonProperty("description")
     private String description;
 
-    @JsonProperty("start_date")
-    private Date startDate;
+    private String startDate;
 
-    @JsonProperty("main_image_url")
     private String mainImageUrl;
 
-    @JsonProperty("clause_id")
-    private int clauseId;
+    private int userId;
 
-    @JsonProperty("end_date")
-    private Date endDate;
 
     public InsuranceProduct(InsuranceProductInput insuranceProductInput) {
         this.productName = insuranceProductInput.getProductName();
@@ -58,7 +46,6 @@ public class InsuranceProduct {
         this.description = insuranceProductInput.getDescription();
         this.startDate = insuranceProductInput.getStartDate();
         this.mainImageUrl = insuranceProductInput.getMainImageUrl();
-        this.clauseId = insuranceProductInput.getClauseId();
-        this.endDate = insuranceProductInput.getEndDate();
+        this.userId = insuranceProductInput.getUserId();
     }
 }

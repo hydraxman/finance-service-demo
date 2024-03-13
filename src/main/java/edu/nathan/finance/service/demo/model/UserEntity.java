@@ -12,7 +12,7 @@ import org.springframework.data.annotation.Id;
 @Accessors(chain = true)
 public class UserEntity {
     @Id
-    private String id;
+    private int id;
     private String username;
     private String email;
     private String password;

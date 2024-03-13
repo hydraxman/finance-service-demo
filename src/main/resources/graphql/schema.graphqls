@@ -30,8 +30,7 @@ type InsuranceProduct {
     description: String
     startDate: String
     mainImageUrl: String
-    clauseId: Int
-    endDate: String
+    user: User
 }
 
 input InsuranceProductInput {
@@ -43,8 +42,7 @@ input InsuranceProductInput {
     description: String
     startDate: String!
     mainImageUrl: String
-    clauseId: Int!
-    endDate: String
+    userId: Int!
 }
 type User {
     id: ID!

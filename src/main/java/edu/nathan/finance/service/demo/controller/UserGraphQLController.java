@@ -1,11 +1,13 @@
 package edu.nathan.finance.service.demo.controller;
 
+import edu.nathan.finance.service.demo.model.InsuranceProduct;
 import edu.nathan.finance.service.demo.model.UserEntity;
 import edu.nathan.finance.service.demo.service.UserEntityService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
+import org.springframework.graphql.data.method.annotation.SchemaMapping;
 import org.springframework.stereotype.Controller;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -24,9 +26,15 @@ public class UserGraphQLController {
         this.userEntityService = userEntityService;
     }
 
+    @SchemaMapping(typeName = "InsuranceProduct", field = "user")
+    public Mono<UserEntity> userEntity(InsuranceProduct insuranceProduct) {
+        log.info("SchemaMapping is now used to fill the user field in InsuranceProduct with the user data {}", insuranceProduct);
+        return processWithLog(this.userEntityService.getUser(insuranceProduct.getUserId()));
+    }
+
     @QueryMapping("listUsers")
     Flux<UserEntity> listUsers() {
-        log.info("Get all players using 'getAllInsuranceProducts' query");
+        log.info("Get all users");
         return processWithLog(this.userEntityService.getUsers());
     }
 

@@ -11,8 +11,9 @@ COPY build/libs/*.jar app.jar
 EXPOSE 8080
 
 # 设置环境变量
-ENV DATABASE_USER=yourDatabaseUser
-ENV DATABASE_PASSWORD=yourDatabasePassword
+ENV SPRING_DATASOURCE_=yourDatabaseUser
+ENV SPRING_DATASOURCE_URL=yourDatabasePassword
+ENV SPRING_DATASOURCE_URL=yourDatabasePassword
 
 # 启动Spring Boot应用
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar", "--spring.profiles.active=k8s"]

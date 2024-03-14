@@ -9,9 +9,9 @@ spring:
       enabled: true
   r2dbc:
     driver: postgres
-    url: r2dbc:postgresql://localhost:5432/database_name
-    username: ${PG_USER}
-    password: ${PG_PASSWORD}
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
     pool:
       enabled: false
       initial-size: 5

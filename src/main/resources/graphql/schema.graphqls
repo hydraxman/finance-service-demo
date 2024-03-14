@@ -8,6 +8,7 @@ type Query {
 }
 
 type Subscription {
+    count(from: Int, to: Int): Int
     userCreated: User
 }
 type Mutation {

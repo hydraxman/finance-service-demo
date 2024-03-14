@@ -8,8 +8,17 @@ app.use(express.json());
 app.use('/static', express.static('public'))
 
 app.get('/hi', (req, res) => {
-  res.json({msg: 'Hello World!', baseUrl: config.externalApiBaseUrl})
+  external_resp = axios.get(`${config.externalApiBaseUrl}/hi`)
+  // process external_resp.data
+  processExternalResp(external_resp.data)
+  res.json({msg: 'ok', : external_resp.data})
 })
+
+function processExternalResp(data) {
+  // do something with data
+  console.log(data)
+  return data
+}
 
 
 app.listen(port, () => {

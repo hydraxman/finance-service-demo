@@ -11,9 +11,9 @@ COPY build/libs/*.jar app.jar
 EXPOSE 8080
 
 # 设置环境变量
-ENV SPRING_DATASOURCE_=yourDatabaseUser
-ENV SPRING_DATASOURCE_URL=yourDatabasePassword
-ENV SPRING_DATASOURCE_URL=yourDatabasePassword
+#ENV SPRING_DATASOURCE_USER=admin
+#ENV SPRING_DATASOURCE_PASSWORD=dcba4321
+#ENV SPRING_DATASOURCE_URL=r2dbc:postgresql://localhost:5432/finance
 
 # 启动Spring Boot应用
 ENTRYPOINT ["java", "-jar", "app.jar", "--spring.profiles.active=k8s"]

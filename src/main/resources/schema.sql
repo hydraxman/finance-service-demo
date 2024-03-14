@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS insurance_product;
 CREATE TABLE insurance_product (
     id INT PRIMARY KEY AUTO_INCREMENT,
     product_name VARCHAR(255) NOT NULL,
@@ -10,6 +11,7 @@ CREATE TABLE insurance_product (
     main_image_url VARCHAR(255), -- 产品主图
     user_id INT -- 被保人ID
 );
+DROP TABLE IF EXISTS user_entity;
 CREATE TABLE user_entity (
   id INT PRIMARY KEY AUTO_INCREMENT,
   username VARCHAR(255) NOT NULL,

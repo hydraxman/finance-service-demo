@@ -1,7 +1,7 @@
 spring:
-  rabbitmq:
-    host: rabbitmq
-    port: 5672
+#  rabbitmq:
+#    host: rabbitmq
+#    port: 5672
 #    username: ${RABBITMQ_USER}
 #    password: ${RABBITMQ_PASSWORD}
   graphql:

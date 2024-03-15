@@ -11,7 +11,7 @@ COPY build/libs/*.jar app.jar
 EXPOSE 8080
 
 # 设置环境变量
-#ENV SPRING_DATASOURCE_USER=admin
+#ENV SPRING_DATASOURCE_USERNAME=admin
 #ENV SPRING_DATASOURCE_PASSWORD=dcba4321
 #ENV SPRING_DATASOURCE_URL=r2dbc:postgresql://localhost:5432/finance
 

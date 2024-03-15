@@ -6,4 +6,4 @@ data:
   database-user: "admin"
   database-password: "dcba4321"
   database-name: "finance"
-  database-url: "r2dbc:postgresql://localhost:5432/database_name"
+  database-url: "r2dbc:postgresql://postgres:5432/finance"

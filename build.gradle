@@ -33,6 +33,7 @@ dependencies {
 
     runtimeOnly 'com.h2database:h2'
     runtimeOnly 'io.r2dbc:r2dbc-h2'
+//    runtimeOnly 'io.r2dbc:r2dbc-postgresql'
     runtimeOnly 'org.postgresql:r2dbc-postgresql'
 
     compileOnly 'org.projectlombok:lombok'

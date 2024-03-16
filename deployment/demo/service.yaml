@@ -16,6 +16,7 @@ spec:
       containers:
         - name: finance-service
           image: localhost:5100/finance-service-graphql-reactive:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
           env:

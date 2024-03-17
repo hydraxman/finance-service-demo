@@ -8,7 +8,7 @@ import lombok.experimental.Accessors;
 import org.springframework.data.annotation.Id;
 
 import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
+import java.sql.Date;
 
 @Data
 @AllArgsConstructor
@@ -16,35 +16,26 @@ import java.text.SimpleDateFormat;
 @Accessors(chain = true)
 public class InsuranceProduct {
     @Id
-    @JsonProperty("id")
     private int id;
 
-    @JsonProperty("product_name")
     private String productName;
 
-    @JsonProperty("term")
     private int term;
 
-    @JsonProperty("type")
     private String type;
 
-    @JsonProperty("payment_method")
     private String paymentMethod;
 
-    @JsonProperty("price")
     private BigDecimal price;
 
-    @JsonProperty("description")
     private String description;
 
-    @JsonProperty("main_image_url")
+    private String startDate;
+
     private String mainImageUrl;
 
-    @JsonProperty("clause_id")
-    private int clauseId;
+    private int userId;
 
-    // 创建一个yyyy-MM-dd格式的日期
-    public final static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
     public InsuranceProduct(InsuranceProductInput insuranceProductInput) {
         this.productName = insuranceProductInput.getProductName();
@@ -53,7 +44,8 @@ public class InsuranceProduct {
         this.paymentMethod = insuranceProductInput.getPaymentMethod();
         this.price = insuranceProductInput.getPrice();
         this.description = insuranceProductInput.getDescription();
+        this.startDate = insuranceProductInput.getStartDate();
         this.mainImageUrl = insuranceProductInput.getMainImageUrl();
-        this.clauseId = insuranceProductInput.getClauseId();
+        this.userId = insuranceProductInput.getUserId();
     }
 }

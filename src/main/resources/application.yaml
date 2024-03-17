@@ -1,15 +1,14 @@
+server:
+  port: 8080
 spring:
+  graphql:
+    graphiql:
+      enabled: true
   r2dbc:
     driver: h2
     # The connection URL is set to r2dbc:h2:file:///./[database-name], which indicates that you are using H2 disk-based database.
     # url: r2dbc:h2:file:///./finance?options=DB_CLOSE_DELAY=-1
     url: r2dbc:h2:mem:///finance?options=DB_CLOSE_DELAY=-1
-    username:
-    password:
     pool:
-      enabled: false
+      enabled: true
       initial-size: 5
-#  r2dbc:
-#    url: r2dbc:mysql://mysql:3306/springwebfluxdb
-#    username: ${MYSQL_USER}
-#    password: ${MYSQL_PASSWORD}

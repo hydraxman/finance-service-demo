@@ -26,46 +26,46 @@ public class InsuranceProductGraphQLController {
         this.insuranceProductService = insuranceProductService;
     }
 
-    @QueryMapping("getAllInsuranceProducts")
-    Flux<InsuranceProduct> getAllInsuranceProducts() {
-        log.info("Get all products using 'getAllInsuranceProducts' query");
+    @QueryMapping("listInsuranceProducts")
+    Flux<InsuranceProduct> listInsuranceProducts() {
+        log.info("Get all players using 'getAllInsuranceProducts' query");
         return processWithLog(this.insuranceProductService.getAllInsuranceProducts());
     }
 
-    @QueryMapping("getInsuranceProductById")
-    Mono<InsuranceProduct> getInsuranceProductById(@Argument Integer id) {
-        log.info("Get product by id using 'getInsuranceProductById' query");
+    @QueryMapping("insuranceProduct")
+    Mono<InsuranceProduct> insuranceProduct(@Argument Integer id) {
+        log.info("Get player by id using 'getInsuranceProductById' query");
         return processWithLog(this.insuranceProductService.getInsuranceProductById(id));
     }
 
     @QueryMapping("getInsuranceProductByName")
     Mono<InsuranceProduct> getInsuranceProductByName(@Argument String name) {
-        log.info("Get product by name using 'getInsuranceProductByName' query");
+        log.info("Get player by name using 'getInsuranceProductByName' query");
         return processWithLog(this.insuranceProductService.getInsuranceProductByName(name));
     }
 
 
     @MutationMapping("addInsuranceProduct")
     Mono<InsuranceProduct> addInsuranceProduct(@Argument InsuranceProductInput insuranceProductInput) {
-        log.info("Add product using 'addInsuranceProduct' mutation");
+        log.info("Add player using 'addInsuranceProduct' mutation");
         return processWithLog(this.insuranceProductService.addInsuranceProduct(insuranceProductInput));
     }
 
     @MutationMapping("updateInsuranceProduct")
     Mono<InsuranceProduct> updateInsuranceProduct(@Argument Integer id, @Argument InsuranceProductInput insuranceProductInput) {
-        log.info("Updating product using 'updateInsuranceProduct' mutation");
+        log.info("Updating player using 'updateInsuranceProduct' mutation");
         return processWithLog(this.insuranceProductService.updateInsuranceProduct(id, insuranceProductInput));
     }
 
     @MutationMapping("deleteInsuranceProductById")
     Mono<InsuranceProduct> deleteInsuranceProductById(@Argument Integer id) {
-        log.info("Delete product using 'deleteInsuranceProductById' mutation");
+        log.info("Delete player using 'deleteInsuranceProductById' mutation");
         return processWithLog(this.insuranceProductService.deleteInsuranceProductById(id));
     }
 
     @MutationMapping("deleteInsuranceProductByName")
     Mono<InsuranceProduct> deleteInsuranceProductById(@Argument String name) {
-        log.info("Delete product using 'deleteInsuranceProductByName' mutation");
+        log.info("Delete player using 'deleteInsuranceProductByName' mutation");
         return processWithLog(this.insuranceProductService.deleteInsuranceProductByName(name));
     }
 

@@ -9,6 +9,17 @@ kubectl apply -f demo/postgres-single.yaml
 kubectl apply -f demo/service.yaml
 ```
 
+To update a deployment image to the latest version, you can use the following command:
+
+```bash
+kubectl delete pod -l app=finance-app
+kubectl apply -f demo/service.yaml
+```
+
+REF: 
+- https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+- https://stackoverflow.com/questions/40366192/kubernetes-how-to-make-deployment-to-update-image
+
 ## Inject the Istio sidecar
 
 

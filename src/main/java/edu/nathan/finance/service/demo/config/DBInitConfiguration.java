@@ -18,6 +18,10 @@ public class DBInitConfiguration {
 
     @Bean
     public ConnectionFactoryInitializer initializer(ConnectionFactory connectionFactory) {
+        // https://stackoverflow.com/questions/65351356/initialize-database-for-testing-purpose-on-spring-data-r2dbc
+        // https://github.com/spring-projects/spring-boot/issues/20524
+        // https://cloud.tencent.com/developer/article/2168686
+        // https://www.baeldung.com/spring-boot-data-sql-and-schema-sql
         LOGGER.info("DBInitConfiguration: initializer");
 
         ConnectionFactoryInitializer initializer = new ConnectionFactoryInitializer();

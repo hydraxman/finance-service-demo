@@ -16,7 +16,7 @@ import java.sql.Date;
 @Accessors(chain = true)
 public class InsuranceProduct {
     @Id
-    private int id;
+    private Integer id;
 
     private String productName;
 

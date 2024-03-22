@@ -11,7 +11,9 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: standard
   local:
-    path: /Users/bsp/k8s-data-space/demo/postgres
+#    path: "/Users/bsp/k8s-data-space/demo/postgres"
+    # below is a magic path for Docker Desktop Windows, see https://stackoverflow.com/questions/54073794/kubernetes-persistent-volume-on-docker-desktop-windows
+    path: "/run/desktop/mnt/host/d/data/postgres"
   nodeAffinity:
     required:
       nodeSelectorTerms:

@@ -17,7 +17,7 @@ import java.util.List;
 public class UserRESTController {
 
     private final List<UserEntity> users = List.of(
-            new UserEntity(0, "Nathan", "123@qq.com", "123", "admin", "active", "2021-01-01")
+            new UserEntity(0, "Nathan", "123@qq.com", "123", "admin", "active", "2021-01-01", "Jerry")
     );
 
     @GetMapping("/{id}")

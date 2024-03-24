@@ -12,3 +12,5 @@ spring:
     pool:
       enabled: true
       initial-size: 5
+app:
+  version-code-name: ${APP_VERSION_CODE_NAME}

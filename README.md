@@ -5,11 +5,17 @@ Use Java 17, Spring Boot 3+, R2DBC
 ## Build docker image and publish
 
 ```bash
+set codename tom
+#set codename puma
+#set codename tiger
+```
+
+```bash
 chmod +x gradlew
 ./gradlew clean bootJar
-docker build -t finance-service-graphql-reactive:latest .
-docker tag finance-service-graphql-reactive:latest localhost:5100/finance-service-graphql-reactive:latest
-docker push localhost:5100/finance-service-graphql-reactive:latest
+docker build -t finance-service-graphql-reactive:$codename .
+docker tag finance-service-graphql-reactive:$codename localhost:5100/finance-service-graphql-reactive:$codename
+docker push localhost:5100/finance-service-graphql-reactive:$codename
 ```
 
 # Resources

@@ -4,6 +4,7 @@ import edu.nathan.finance.service.demo.model.UserEntity;
 import edu.nathan.finance.service.demo.repository.UserEntityRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -12,6 +13,8 @@ import reactor.core.publisher.Mono;
 @Service
 public class UserEntityService {
     private final UserEntityRepository userEntityRepository;
+    @Value("${app.version-code-name}")
+    private String versionCodeName;
 
     @Autowired
     public UserEntityService(UserEntityRepository userEntityRepository) {
@@ -19,10 +22,12 @@ public class UserEntityService {
     }
 
     public Flux<UserEntity> getUsers() {
-        return userEntityRepository.findAll();
+        return userEntityRepository.findAll()
+                .map(userEntity -> userEntity.setPet(versionCodeName));
     }
 
     public Mono<UserEntity> getUser(Integer id) {
-        return userEntityRepository.findById(id);
+        return userEntityRepository.findById(id)
+                .map(userEntity -> userEntity.setPet(versionCodeName));
     }
 }

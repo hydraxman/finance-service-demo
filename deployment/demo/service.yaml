@@ -130,6 +130,6 @@ spec:
     app: finance-app
   type: LoadBalancer # or LoadBalancer if you want to expose it externally
   ports:
-    - protocol: TCP
-      port: 8080
+    - port: 8080
+      name: http
       targetPort: 8080

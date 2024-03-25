@@ -53,6 +53,7 @@ type User {
     role: String!
     status: String!
     createdAt: String!
+    pet: String
 }
 
 input UserInput {

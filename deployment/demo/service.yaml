@@ -1,8 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: finance-app
-  namespace: finance
+  name: finance-app-tom
+  labels:
+    app: finance-app
+    version: tom
 spec:
   replicas: 1
   selector:
@@ -15,7 +17,87 @@ spec:
     spec:
       containers:
         - name: finance-service
-          image: localhost:5100/finance-service-graphql-reactive:latest
+          image: localhost:5100/finance-service-graphql-reactive:tom
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: database-user
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: database-password
+            - name: SPRING_DATASOURCE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: database-url
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: finance-app-puma
+  labels:
+    app: finance-app
+    version: puma
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: finance-app
+  template:
+    metadata:
+      labels:
+        app: finance-app
+    spec:
+      containers:
+        - name: finance-service
+          image: localhost:5100/finance-service-graphql-reactive:puma
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: database-user
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: database-password
+            - name: SPRING_DATASOURCE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: database-url
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: finance-app-tiger
+  labels:
+    app: finance-app
+    version: tiger
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: finance-app
+  template:
+    metadata:
+      labels:
+        app: finance-app
+    spec:
+      containers:
+        - name: finance-service
+          image: localhost:5100/finance-service-graphql-reactive:tiger
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
@@ -40,12 +122,14 @@ apiVersion: v1
 kind: Service
 metadata:
   name: finance-app-service
-  namespace: finance
+  labels:
+    app: finance-app
+    service: finance-app
 spec:
   selector:
     app: finance-app
   type: LoadBalancer # or LoadBalancer if you want to expose it externally
   ports:
-    - protocol: TCP
-      port: 8080
+    - port: 8080
+      name: http
       targetPort: 8080

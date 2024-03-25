@@ -21,5 +21,6 @@ public class UserEntity {
     private String role;
     private String status;
     private String createdAt;
+    private String pet;
 
 }

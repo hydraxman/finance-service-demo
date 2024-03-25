@@ -31,7 +31,11 @@ public class InsuranceProductService {
 
     public Mono<InsuranceProduct> getInsuranceProductById(Integer id) {
         final String errorMessage = String.format("There is no insuranceProduct with id: '%d'", id);
-        return processWithErrorCheck(this.insuranceProductRepository.findById(id), errorMessage);
+
+        Mono<InsuranceProduct> byId = this.insuranceProductRepository.findById(id);
+        Mono<InsuranceProduct> map = byId
+                .map(insuranceProduct -> insuranceProduct.setProductName(insuranceProduct.getProductName() + "_new"));
+        return processWithErrorCheck(map, errorMessage);
     }
 
     public Mono<InsuranceProduct> getInsuranceProductByName(String name) {

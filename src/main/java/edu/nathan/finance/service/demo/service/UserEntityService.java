@@ -13,7 +13,7 @@ import reactor.core.publisher.Mono;
 @Service
 public class UserEntityService {
     private final UserEntityRepository userEntityRepository;
-    @Value("${app.version-code-name}")
+    @Value("${app.version-code-name:}")
     private String versionCodeName;
 
     @Autowired

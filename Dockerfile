@@ -1,6 +1,7 @@
 # run this after: ./gradlew.bat :bootJar
 FROM mcr.microsoft.com/openjdk/jdk:17-ubuntu
 
+ARG TAG
 # 设置工作目录
 #WORKDIR /app
 
@@ -11,9 +12,7 @@ COPY build/libs/*.jar app.jar
 EXPOSE 8080
 
 # 设置环境变量
-#ENV APP_VERSION_CODE_NAME=Tomcat
-#ENV APP_VERSION_CODE_NAME=Puma
-ENV APP_VERSION_CODE_NAME=Tiger
+ENV APP_VERSION_CODE_NAME=$TAG
 
 # 启动Spring Boot应用
 ENTRYPOINT ["java", "-jar", "app.jar", "--spring.profiles.active=k8s"]

@@ -13,7 +13,7 @@ set codename tom
 ```bash
 chmod +x gradlew
 ./gradlew clean bootJar
-docker build -t finance-service-graphql-reactive:$codename .
+docker build --build-arg TAG=$codename -t finance-service-graphql-reactive:$codename .
 docker tag finance-service-graphql-reactive:$codename localhost:5100/finance-service-graphql-reactive:$codename
 docker push localhost:5100/finance-service-graphql-reactive:$codename
 ```
@@ -21,3 +21,10 @@ docker push localhost:5100/finance-service-graphql-reactive:$codename
 # Resources
 
 https://learn.microsoft.com/zh-cn/azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-mysql
+
+# Deploy Registry
+
+```bash
+docker pull registry:latest
+docker run -d -p 5100:5000 --restart=always --name registry registry:latest
+```

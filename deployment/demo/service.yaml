@@ -4,7 +4,7 @@ metadata:
   name: finance-app-tom
   labels:
     app: finance-app
-    version: tom
+    version: tom1
 spec:
   replicas: 1
   selector:
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: finance-service
-          image: localhost:5100/finance-service-graphql-reactive:tom
+          image: localhost:5100/finance-service-graphql-reactive:tom1
           imagePullPolicy: Always
           ports:
             - containerPort: 8080

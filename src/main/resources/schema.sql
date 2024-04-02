@@ -19,5 +19,6 @@ CREATE TABLE user_entity (
   password VARCHAR(255) NOT NULL,
   role VARCHAR(50) NOT NULL,
   status VARCHAR(50) NOT NULL,
+  pet VARCHAR(50) NOT NULL,
   created_at VARCHAR(50) NOT NULL
 );

@@ -4,7 +4,7 @@ metadata:
   name: finance-app-tom
   labels:
     app: finance-app
-    version: tom1
+    version: tom
 spec:
   replicas: 1
   selector:
@@ -14,10 +14,11 @@ spec:
     metadata:
       labels:
         app: finance-app
+        version: tom
     spec:
       containers:
         - name: finance-service
-          image: localhost:5100/finance-service-graphql-reactive:tom1
+          image: nathanwin/finance-service-graphql-reactive:tom
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
@@ -54,10 +55,11 @@ spec:
     metadata:
       labels:
         app: finance-app
+        version: puma
     spec:
       containers:
         - name: finance-service
-          image: localhost:5100/finance-service-graphql-reactive:puma
+          image: nathanwin/finance-service-graphql-reactive:puma
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
@@ -94,10 +96,11 @@ spec:
     metadata:
       labels:
         app: finance-app
+        version: tiger
     spec:
       containers:
         - name: finance-service
-          image: localhost:5100/finance-service-graphql-reactive:tiger
+          image: nathanwin/finance-service-graphql-reactive:tiger
           imagePullPolicy: Always
           ports:
             - containerPort: 8080

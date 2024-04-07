@@ -29,3 +29,5 @@ echo "Listing all replicasets in the cluster"
 kubectl get replicasets
 echo "Listing all nodes in the cluster"
 kubectl get nodes
+echo "Listing metrics-server"
+kubectl get deployment metrics-server -n kube-system

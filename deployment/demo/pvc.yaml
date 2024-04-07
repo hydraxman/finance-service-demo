@@ -10,18 +10,19 @@ spec:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   storageClassName: standard
-  local:
+  hostPath:
 #    path: "/Users/bsp/k8s-data-space/demo/postgres"
     # below is a magic path for Docker Desktop Windows, see https://stackoverflow.com/questions/54073794/kubernetes-persistent-volume-on-docker-desktop-windows
+    # for minikube you may run: minikube mount C:\data\postgres:/run/desktop/mnt/host/c/data/postgres
     path: "/run/desktop/mnt/host/c/data/postgres"
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-        - matchExpressions:
-            - key: kubernetes.io/hostname
-              operator: In
-              values:
-                - docker-desktop
+#  nodeAffinity:
+#    required:
+#      nodeSelectorTerms:
+#        - matchExpressions:
+#            - key: kubernetes.io/hostname
+#              operator: In
+#              values:
+#                - multinode-m02
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim

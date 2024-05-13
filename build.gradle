@@ -30,6 +30,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
     implementation 'org.springframework.boot:spring-boot-starter-hateoas'
+    implementation 'org.springframework.ai:spring-ai-azure-openai-spring-boot-starter'
+    implementation "me.paulschwarz:spring-dotenv:4.0.0"
 //    implementation 'org.springframework.boot:spring-boot-starter-data-amqp'
 
     runtimeOnly 'com.h2database:h2'

@@ -1,0 +1,37 @@
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: finance-app-destination
+spec:
+  host: finance-app-service
+  subsets:
+    - name: tom
+      labels:
+        version: tom
+    - name: tiger
+      labels:
+        version: tiger
+    - name: puma
+      labels:
+        version: puma
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: finance-app-routing
+spec:
+  hosts:
+  - finance-app-service
+  http:
+  - match:
+    - headers:
+        User:
+          exact: u1
+    route:
+    - destination:
+        host: finance-app-service
+        subset: puma
+  - route:
+    - destination:
+        host: finance-app-service
+        subset: tom

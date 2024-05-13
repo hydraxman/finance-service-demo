@@ -2,8 +2,6 @@
 FROM mcr.microsoft.com/openjdk/jdk:17-ubuntu
 
 ARG TAG
-# 设置工作目录
-#WORKDIR /app
 
 # 将构建好的jar文件复制到镜像中
 COPY build/libs/*.jar app.jar

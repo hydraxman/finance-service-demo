@@ -1,5 +1,15 @@
 # Deployment Key Checkpoints
 
+## Run minikube multiple nodes
+
+According to [the doc](https://minikube.sigs.k8s.io/docs/tutorials/multi_node/):
+
+```bash
+minikube start --nodes 2 -p multinode
+# enable the metrics server
+#  minikube addons enable metrics-server -p multinode
+```
+
 ## Deploy the service in Kubernetes
 
 ```bash
@@ -26,7 +36,8 @@ REF:
 ## Enable kiali and view the service graph
 
 
-## About the docker compose tool and PGAdmin
+
+# About the docker compose tool and PGAdmin
 
 PGAdmin is a tool that allows you to manage your PostgreSQL database. It is a web-based tool that allows you to create, edit, and delete databases, tables, and rows.
 

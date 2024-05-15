@@ -6,6 +6,6 @@ VALUES
 ('汽车保险', 12, '汽车保险', '月缴', 129.99, '全面覆盖汽车相关的风险，包括交通事故、盗窃和自然灾害。', '2024-04-01', 'http://example.com/images/product4.jpg', 2),
 ('人寿保险', 120, '人寿保险', '年缴', 499.99, '为您和家人提供长期的人寿保障。', '2024-05-01', 'http://example.com/images/product5.jpg', 2);
 
-INSERT INTO user_entity (username, email, password, role, status, created_at) VALUES
-('gentleman', 'user1@example.com', 'password1', 'admin', 'active','cat', '2023-01-01T00:00:00Z'),
-('lady', 'user2@example.com', 'password2', 'user', 'active','dog', '2023-01-02T00:00:00Z');
+--INSERT INTO user_entity (username, email, password, role, status, created_at) VALUES
+--('gentleman', 'user1@example.com', 'password1', 'admin', 'active','cat', '2023-01-01T00:00:00Z'),
+--('lady', 'user2@example.com', 'password2', 'user', 'active','dog', '2023-01-02T00:00:00Z');
